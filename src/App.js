@@ -1,6 +1,9 @@
 import React from 'react';
 
 let marked = require('marked');
+marked.setOptions({
+  breaks: true
+});
 
 class App extends React.Component{
   constructor(props){
@@ -60,5 +63,6 @@ let titleStyle = {
   backgroundColor: '#18b500'
 }
 
-let defaultText = '# Markdown Previewer\n\n## Welcome to my markdown interpreter.\nYou can check out this project source code [here](https://github.com/RasbeeTech).\n\n This code: `<div></div>` has back-ticks around it.  \nHere is a list of my favorite programming languages:\n* JavaScript\n* Python\n* Swift\n\n> Blockquotes are very handy in emails to emulate reply text.\n> This line is part of the same quote.\n\nYou may also want to use **bold** text.  \n### Here is an image:  \n![React Logo](https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg)';
+let defaultText = '# Markdown Previewer\n\n## Welcome to my markdown interpreter.\nYou can check out this project source code [here](https://github.com/RasbeeTech).\n\n This code: \`<div></div>\` has back-ticks around it.  \n \`\`\` \n //Here is an exmaple of multi line code:\n var square = (x) => {\n   return(x*x);\n }\n\`\`\`  \nHere is a list of my favorite programming languages:\n* JavaScript\n* Python\n* Swift\n\n> Blockquotes are very handy in emails to emulate reply text.\n> This line is part of the same quote.\n\nYou may also want to use **bold** text.  \n### Here is an image:  \n![React Logo](https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg)';
+
 export default App;
