@@ -6,7 +6,7 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      text: '# Markdown Previewer'
+      text: defaultText
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -17,15 +17,17 @@ class App extends React.Component{
     return (
       <div className="App">
         <div className='container-fluid'>
-          <h1 className='text-center'>Markdown Previewer</h1>
+          <div className='text-center border border-dark' style={titleStyle}>
+            <h3>Markdown Previewer</h3>
+          </div>
           <br />
           <div className="row">
-            <div className='col-lg-6'>
-              <h2 className='text-center' style={titleStyle}>Input</h2>
-              <textarea id='editor' style={inputStyle} onChange={this.handleChange} placeholder={this.state.text}></textarea>
+            <div className='col-md-6'>
+              <h4 className='text-center border border-dark' style={titleStyle}>Input</h4>
+              <textarea id='editor' style={inputStyle} onChange={this.handleChange}>{this.state.text}</textarea>
             </div>
-            <div className='col-lg-6'>
-              <h2 className='text-center' style={titleStyle}>Preview</h2>
+            <div className='col-md-6'>
+              <h4 className='text-center border border-dark' style={titleStyle}>Preview</h4>
               <div id='preview' style={outputStyle} className='border bg-light' dangerouslySetInnerHTML={{__html: marked(this.state.text),}} />
             </div>
           </div>
@@ -41,7 +43,8 @@ let inputStyle = {
   height: '70vh',
   marginLeft: 'auto',
   marginRight: 'auto',
-  padding: 10
+  padding: 10,
+  resize: 'none'
 };
 
 let outputStyle = {
@@ -57,4 +60,5 @@ let titleStyle = {
   backgroundColor: '#18b500'
 }
 
+let defaultText = '# Markdown Previewer\n\n## Welcome to my markdown interpreter.\nYou can check out this project source code [here](https://github.com/RasbeeTech).\n\n This code: `<div></div>` has back-ticks around it.  \nHere is a list of my favorite programming languages:\n* JavaScript\n* Python\n* Swift\n\n> Blockquotes are very handy in emails to emulate reply text.\n> This line is part of the same quote.\n\nYou may also want to use **bold** text.  \n### Here is an image:  \n![React Logo](https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg)';
 export default App;
